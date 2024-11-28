@@ -24,4 +24,25 @@ function initScrollSuave(){
   })
 }
 
+//voltar para o topo da página
+function initVoltaTopo(){
+  const botaoVoltaTopo = document.querySelector('.voltar-topo')
+  
+  function mostraVoltaTopo(e){
+    botaoVoltaTopo.classList.remove('ativo')
+    if (window.scrollY > 300){
+      botaoVoltaTopo.classList.add('ativo')
+      botaoVoltaTopo.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        })
+      })
+    }
+  }
+  
+  window.addEventListener('scroll', mostraVoltaTopo)
+}
+
 initScrollSuave()
+initVoltaTopo()
